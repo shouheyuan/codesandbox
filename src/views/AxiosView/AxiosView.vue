@@ -1,5 +1,13 @@
 <template>
   <div>
+    <a-alert
+      message="独立 JavaScript 文件与当前 Vue 实例无缝交互的实践"
+      description="Vue 实例的属性与方法，在 JavaScript 文件中也可以直接访问，不同文件之间可以互相访问"
+      type="info"
+    >
+    </a-alert>
+    <div style="height: 100px"></div>
+
     <p>{{ message }}</p>
     <select name="" id="">
       <option value="">--Please choose an option--</option>
@@ -40,12 +48,12 @@ export default {
     };
   },
   created() {
-    // 在初始化时将 other.vue 的实例传递给 ctx
+    // 在初始化时将 的实例传递给 ctx
     this.ctx = Object.freeze(ctx.init(this));
-    // ctx.controller.getMessage();
-    // ctx.controller.setMessage("Hello, Vue!");
-    // ctx.controller.getMessage();
-    // console.log(this.ctx.enums.accountList());
+    ctx.controller.getMessage();
+    ctx.controller.setMessage("Hello, Vue!");
+    ctx.controller.getMessage();
+    console.log(this.ctx.enums.accountList());
   },
 };
 </script>
